@@ -69,19 +69,26 @@
     <script>
       // Globals
       var user;
+      var room = window.location.hash.substr(1);
       var GITHUB_CLIENT_ID = '45d29134d70365fbe5af';
       var OAUTH_PROXY_URL = 'https://auth-server.herokuapp.com/proxy';
 
       // Socket.io
       var socket = io('http://alf-macbook.local:3000');
       $('form').submit(function(){
-        socket.emit('chat message', user + ": " + $('#m').val());
+        socket.emit('message', room, user + ": " + $('#m').val());
+
         $('#m').val('');
         return false;
       });
 
-      socket.on('chat message', function(msg){
+      socket.on('connect', function() {
+         socket.emit('room', room);
+      });
+
+      socket.on('message', function(msg){
         $('#messages').append($('<li>').text(msg));
+         console.log('Incoming message:', msg);
       });
 
       // Hello.js
