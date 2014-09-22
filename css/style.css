@@ -3,8 +3,8 @@
  */
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
+  font-family: Helvetica, arial, freesans, clean serif;
+  color: #333 ;
 }
 
 h1, .h1,
@@ -35,6 +35,16 @@ h6, .h6 {
  * Masthead for nav
  */
 
+ .navbar-default .navbar-nav > li > a {
+   color: #333;
+   padding: 10px 8px;
+ }
+ .navbar-default .navbar-brand,
+ .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus,
+ .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+   color: #333;
+ }
+
 .blog-masthead {
   background-color: #428bca;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
@@ -47,7 +57,7 @@ h6, .h6 {
   display: inline-block;
   padding: 10px;
   font-weight: 500;
-  color: #cdddeb;
+  color: #333;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
@@ -71,6 +81,31 @@ h6, .h6 {
   border-right: 5px solid transparent;
   border-bottom: 5px solid;
   border-left: 5px solid transparent;
+}
+
+.navbar {
+  height: 40px;
+  min-height: 40px;
+}
+.navbar-brand {
+  padding: 10px 15px;
+  height: 40px;
+}
+.navbar-brand .octicon.octicon-logo-github {
+  font-size: 24px;
+}
+.navbar-brand .chat-logo {
+  vertical-align: text-top;
+  font: 24px Helvetica, arial, freesans, clean, sans-serif;
+  line-height: 16px;
+  letter-spacing: -1px;
+}
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.navbar .github-link {
+  font-size: 18px;
 }
 
 /*
