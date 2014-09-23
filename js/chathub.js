@@ -1,10 +1,16 @@
 // Globals
 var user;
-var room = window.location.hash.substr(1);
 var host = window.location.host;
+var room = window.location.pathname.substr(1) || "Lobby";
 var GITHUB_CLIENT_ID = host == "chathub.github.io" ? "5272ed33c7189d449ea8" : "45d29134d70365fbe5af";
 var SOCKETIO_HOST = host == "chathub.github.io" ? "http://chathub-server.alfg.co" : "http://alf-macbook.local:3000";
 var OAUTH_PROXY_URL = 'https://auth-server.herokuapp.com/proxy';
+
+// jQuery
+$(document).ready(function() {
+  $("#room").text(room);
+
+});
 
 // Socket.io
 var socket = io(SOCKETIO_HOST);
