@@ -96,7 +96,7 @@ h6, .h6 {
 }
 .navbar-brand .chat-logo {
   vertical-align: text-top;
-  font: 24px Helvetica, arial, freesans, clean, sans-serif;
+  font: 22px Helvetica, arial, freesans, clean, sans-serif;
   line-height: 16px;
   letter-spacing: -1px;
 }
@@ -113,7 +113,7 @@ h6, .h6 {
  */
 form {
   padding: 3px;
-  width: 970px;
+  max-width: 970px;
   margin: 0 auto;
 }
 #messages {
