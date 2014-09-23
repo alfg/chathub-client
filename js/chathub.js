@@ -8,7 +8,8 @@ var OAUTH_PROXY_URL = 'https://auth-server.herokuapp.com/proxy';
 
 // jQuery
 $(document).ready(function() {
-  $("#room").text(room);
+  $("[rel='tooltip']").tooltip({"placement": "bottom", "trigger": "hover", "container": "body"});
+  $("#room").text(room.replace("/", " / "));
 
 });
 
@@ -38,7 +39,10 @@ hello.on('auth.login', function(r){
     var tmpl = "<img src='"+ p.thumbnail + "' width=20/> " +
     "<strong>" + p.name + "</strong>";
     $("#github").html(tmpl);
+    $("#github").attr("data-original-title", "Account")
+    // $("#github").attr("href", p.html_url);
     user = p.name;
+    console.log(p);
   });
 });
 
