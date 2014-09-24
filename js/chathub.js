@@ -30,9 +30,17 @@ $(document).ready(function() {
 
 // Socket.io
 var socket = io(SOCKETIO_HOST);
+
 $("form").submit(function(){
   var p = profile;
-  var msg = "<strong> " + user + "</strong>" + ": " + $("#m").val();
+  var m = $("#m").val();
+
+  if (m.substring(0, 6) == "/code ") {
+    console.log("yes");
+    m = "<pre class='prettyprint'>" + escapeHtml(m.substring(6)) + "</pre>";
+  }
+
+  var msg = "<strong> " + user + "</strong>" + ": " + m;
   socket.emit("message", room, msg, p);
 
   $("#m").val("");
@@ -67,6 +75,8 @@ socket.on("message", function(msg, profile){
       })
     }).append(msg));
   emojify.run();
+  window.prettyPrint && prettyPrint()
+
 
    console.log("Incoming message: ", msg);
 });
@@ -90,3 +100,19 @@ hello.on("auth.login", function(r){
 hello.init({
   github : GITHUB_CLIENT_ID
 },	{redirect_uri:"../redirect.html", oauth_proxy:OAUTH_PROXY_URL});
+
+// Helper functions
+var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+  };
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
