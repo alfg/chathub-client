@@ -10,6 +10,8 @@ var OAUTH_PROXY_URL = "https://auth-server.herokuapp.com/proxy";
 // jQuery
 $(document).ready(function() {
   $("[rel='tooltip']").tooltip({"placement": "bottom", "trigger": "hover", "container": "body"});
+  $("#messages").height($("body").height() - 300);
+
   $("#room").text(room.replace("/", " / "));
   if (room != "Lobby") { $("#room").attr("href", "https://github.com/" + room); }
 
@@ -33,17 +35,25 @@ var socket = io(SOCKETIO_HOST);
 
 $("form").submit(function(){
   var p = profile;
-  var m = $("#m").val();
+  var m = $("#m").val() || $("#mcode").val();
+  var msg;
 
   if (m.substring(0, 6) == "/code ") {
-    console.log("yes");
     m = "<pre class='prettyprint'>" + escapeHtml(m.substring(6)) + "</pre>";
+    msg = "<strong> " + user + "</strong>" + ": " + m;
+  }
+  else if ($("#mcode").val() != "") {
+    m = "<pre class='prettyprint'>" + escapeHtml(m) + "</pre>";
+    msg = "<strong> " + user + "</strong>" + ": " + m;
+  }
+  else {
+    msg = "<strong> " + user + "</strong>" + ": " + escapeHtml(m);
   }
 
-  var msg = "<strong> " + user + "</strong>" + ": " + m;
   socket.emit("message", room, msg, p);
 
   $("#m").val("");
+  $("#mcode").val("");
   return false;
 });
 
@@ -76,7 +86,7 @@ socket.on("message", function(msg, profile){
     }).append(msg));
   emojify.run();
   window.prettyPrint && prettyPrint()
-
+  $("#messages").scrollTop($("#messages")[0].scrollHeight);
 
    console.log("Incoming message: ", msg);
 });

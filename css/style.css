@@ -2,9 +2,11 @@
  * Globals
  */
 
+html { height: 100%; }
 body {
   font-family: Helvetica, arial, freesans, clean serif;
   color: #333 ;
+  height: 100%;
 }
 
 h1, .h1,
@@ -80,9 +82,12 @@ form {
   margin: 0 auto;
 }
 #messages {
+  height: 650px;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin: 0;
+  overflow-y: scroll;
 }
 #messages li {
   padding: 5px 10px;
@@ -121,6 +126,6 @@ form {
 pre.prettyprint {
   border: 1px solid #CCC;
   margin-top: 10px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   padding: 9.5px;
 }

@@ -60,12 +60,32 @@
 
     <div class="blog-footer">
       <form action="">
-        <div class="input-group">
-          <input id="m" type="text" class="form-control" autocomplete="off" autofocus>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Send</button>
-          </span>
-        </div><!-- /input-group -->
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#chat" role="tab" data-toggle="tab">Chat</a></li>
+          <li><a href="#code" role="tab" data-toggle="tab">Code</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="chat">
+            <div class="input-group">
+              <input id="m" type="text" class="form-control" autocomplete="off" autofocus>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Send</button>
+              </span>
+            </div><!-- /input-group -->
+          </div>
+          <div class="tab-pane" id="code">
+            <div class="input-group">
+              <textarea id="mcode" class="form-control" rows="2"></textarea>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Send</button>
+              </span>
+            </div><!-- /input-group -->
+          </div>
+        </div>
+
       </form>
     </div>
 
