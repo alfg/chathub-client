@@ -87,8 +87,16 @@ socket.on("user disconnected", function(msg, users) {
 
    $("#users").empty();
    $.each(users, function(i, v) {
-     $("#users").append($("<li>").text(v));
-   });
+    $("#users").append($("<li>", {
+        html: $("<a>", {
+          href: v.html_url,
+          html: $("<img>", {
+            src: v.thumbnail,
+            width: 20
+          })
+        })
+      }).append(v.nickname));
+     });
 });
 
 socket.on("message", function(msg, profile){

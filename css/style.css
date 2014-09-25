@@ -87,7 +87,7 @@ form {
   margin: 0;
   padding: 0;
   margin: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #messages li {
   padding: 5px 10px;
