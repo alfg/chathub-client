@@ -96,6 +96,16 @@ form {
   background: #eee;
 }
 
+/*
+ * Users
+ */
+ #users li {
+   font-weight: bold;
+ }
+ #users img {
+   margin-right: 5px;
+ }
+
 
 /*
  * Footer
@@ -115,11 +125,24 @@ form {
   margin-bottom: 0;
 }
 
+/* Navtabs */
+.nav-tabs {
+  border-bottom: 0;
+}
+
 /* Emojify */
 .emoji {
     width: 1.5em;
     height: 1.5em;
     display: inline-block;
+}
+
+/* Breadcrumbs fix */
+.breadcrumb > li + li.users:before {
+  content: "";
+}
+.breadcrumb > li + li.users {
+  padding-right: 150px;
 }
 
 /* PrettyPrint Bootstrap 3 fix */

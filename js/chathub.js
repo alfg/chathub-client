@@ -59,16 +59,36 @@ $("form").submit(function(){
 
 socket.on("connect", function() {
    setTimeout(function() {
-     socket.emit("room", room, user);
+     socket.emit("room", room, profile);
    }, 2000);
    $("#messages").append($("<li>").text("You have entered the room, " + room));
 });
 
-socket.on("user connected", function(msg) {
+socket.on("user connected", function(msg, users) {
+  console.log(users);
    $("#messages").append($("<li>").text(msg));
+
+   $("#users").empty();
+   $.each(users, function(i, v) {
+    $("#users").append($("<li>", {
+        html: $("<a>", {
+          href: v.html_url,
+          html: $("<img>", {
+            src: v.thumbnail,
+            width: 20
+          })
+        })
+      }).append(v.nickname));
+     });
 });
-socket.on("user disconnected", function(msg) {
+
+socket.on("user disconnected", function(msg, users) {
    $("#messages").append($("<li>").text(msg));
+
+   $("#users").empty();
+   $.each(users, function(i, v) {
+     $("#users").append($("<li>").text(v));
+   });
 });
 
 socket.on("message", function(msg, profile){
