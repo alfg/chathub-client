@@ -65,7 +65,6 @@ socket.on("connect", function() {
 });
 
 socket.on("user connected", function(msg, users) {
-  console.log(users);
    $("#messages").append($("<li>").text(msg));
 
    $("#users").empty();
@@ -115,14 +114,11 @@ socket.on("message", function(msg, profile){
   emojify.run();
   window.prettyPrint && prettyPrint()
   $("#messages").scrollTop($("#messages")[0].scrollHeight);
-
-   console.log("Incoming message: ", msg);
 });
 
 // Hello.js
 hello.on("auth.login", function(r){
   // Get Profile
-  console.log("auth.login");
   hello.api(r.network+":/me", function(p){
     var tmpl = "<img src='"+ p.thumbnail + "' width=20/> " +
     "<strong>" + p.name + "</strong>";
