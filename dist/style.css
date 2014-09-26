@@ -1,0 +1,162 @@
+/*
+ *  chathub-client - v0.0.1
+ *  Chatrooms for Github Projects
+ *  http://github.com/alfg/chathub-client
+ *
+ *  Made by Alfred Gutierrez
+ *  Under MIT License
+ */
+/*
+ * Globals
+ */
+
+html { height: 100%; }
+body {
+  font-family: Helvetica, arial, freesans, clean serif;
+  color: #333 ;
+  height: 100%;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+
+/*
+ * Masthead for nav
+ */
+
+ .navbar-default .navbar-nav > li > a {
+   color: #333;
+   padding: 10px 8px;
+ }
+ .navbar-default .navbar-brand,
+ .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus,
+ .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+   color: #333;
+ }
+
+/* Nav links */
+/*.navbar {
+  height: 40px;
+  min-height: 40px;
+}*/
+.navbar-brand {
+  padding: 10px 15px;
+  height: 40px;
+}
+.navbar-brand .octicon.octicon-logo-github {
+  font-size: 24px;
+}
+.navbar-brand .chat-logo {
+  vertical-align: text-top;
+  font: 24px Helvetica, arial, freesans, clean, sans-serif;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.navbar .github-link {
+  font-size: 18px;
+}
+
+/*
+ * Chat
+ */
+form {
+  padding: 3px;
+  max-width: 970px;
+  margin: 0 auto;
+}
+#messages {
+  height: 650px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+
+/*
+ * Users
+ */
+ #users li {
+   font-weight: bold;
+ }
+ #users img {
+   margin-right: 5px;
+ }
+
+
+/*
+ * Footer
+ */
+
+.blog-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Navtabs */
+.nav-tabs {
+  border-bottom: 0;
+}
+
+/* Emojify */
+.emoji {
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+}
+
+/* Breadcrumbs fix */
+.breadcrumb > li + li.users:before {
+  content: "";
+}
+.breadcrumb > li + li.users {
+  padding-right: 150px;
+}
+
+/* PrettyPrint Bootstrap 3 fix */
+pre.prettyprint {
+  border: 1px solid #CCC;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 9.5px;
+}

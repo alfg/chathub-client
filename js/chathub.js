@@ -1,10 +1,10 @@
 // Globals
-var user = "Anonymous";
+var user = "Guest";
 var profile;
 var host = window.location.host;
 var room = window.location.pathname.substr(1) || "Lobby";
-var GITHUB_CLIENT_ID = host == "chathub.github.io" ? "5272ed33c7189d449ea8" : "45d29134d70365fbe5af";
-var SOCKETIO_HOST = host == "chathub.github.io" ? "http://chathub-server.alfg.co" : "http://alf-macbook.local:3000";
+var GITHUB_CLIENT_ID = host === "chathub.github.io" ? "5272ed33c7189d449ea8" : "45d29134d70365fbe5af";
+var SOCKETIO_HOST = host === "chathub.github.io" ? "http://chathub-server.alfg.co" : "http://alf-macbook.local:3000";
 var OAUTH_PROXY_URL = "https://auth-server.herokuapp.com/proxy";
 
 // jQuery
@@ -13,18 +13,18 @@ $(document).ready(function() {
   $("#messages").height($("body").height() - 300);
 
   $("#room").text(room.replace("/", " / "));
-  if (room != "Lobby") { $("#room").attr("href", "https://github.com/" + room); }
+  if (room !== "Lobby") { $("#room").attr("href", "https://github.com/" + room); }
 
   emojify.setConfig({
-    emojify_tag_type : 'div',           // Only run emojify.js on this element
-    only_crawl_id    : null,            // Use to restrict where emojify.js applies
-    img_dir          : '/images/emoji',  // Directory for emoji images
-    ignored_tags     : {                // Ignore the following tags
-        'SCRIPT'  : 1,
-        'TEXTAREA': 1,
-        'A'       : 1,
-        'PRE'     : 1,
-        'CODE'    : 1
+    emojify_tag_type: "div", // Only run emojify.js on this element
+    only_crawl_id: null, // Use to restrict where emojify.js applies
+    img_dir: "/images/emoji", // Directory for emoji images
+    ignored_tags: { // Ignore the following tags
+        "SCRIPT": 1,
+        "TEXTAREA": 1,
+        "A": 1,
+        "PRE": 1,
+        "CODE": 1
     }
   });
   emojify.run();
@@ -38,11 +38,11 @@ $("form").submit(function(){
   var m = $("#m").val() || $("#mcode").val();
   var msg;
 
-  if (m.substring(0, 6) == "/code ") {
+  if (m.substring(0, 6) === "/code ") {
     m = "<pre class='prettyprint'>" + escapeHtml(m.substring(6)) + "</pre>";
     msg = "<strong> " + user + "</strong>" + ": " + m;
   }
-  else if ($("#mcode").val() != "") {
+  else if ($("#mcode").val() !== "") {
     m = "<pre class='prettyprint'>" + escapeHtml(m) + "</pre>";
     msg = "<strong> " + user + "</strong>" + ": " + m;
   }
@@ -99,8 +99,8 @@ socket.on("user disconnected", function(msg, users) {
 });
 
 socket.on("message", function(msg, profile){
-  var html_url = profile != undefined ? profile.html_url : "#";
-  var thumbnail = profile != undefined ? profile.thumbnail : "https://avatars0.githubusercontent.com/u/1746301";
+  var html_url = profile !== undefined ? profile.html_url : "#";
+  var thumbnail = profile !== undefined ? profile.thumbnail : "https://avatars0.githubusercontent.com/u/1746301";
 
   $("#messages").append($("<li>", {
       html: $("<a>", {
@@ -112,7 +112,7 @@ socket.on("message", function(msg, profile){
       })
     }).append(msg));
   emojify.run();
-  window.prettyPrint && prettyPrint()
+  window.prettyPrint && prettyPrint();
   $("#messages").scrollTop($("#messages")[0].scrollHeight);
 });
 
@@ -123,7 +123,7 @@ hello.on("auth.login", function(r){
     var tmpl = "<img src='"+ p.thumbnail + "' width=20/> " +
     "<strong>" + p.name + "</strong>";
     $("#github").html(tmpl);
-    $("#github").attr("data-original-title", "Account")
+    $("#github").attr("data-original-title", "Account");
     // $("#github").attr("href", p.html_url);
     user = p.name;
     profile = p;
@@ -140,9 +140,9 @@ var entityMap = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
-    '"': '&quot;',
-    "'": '&#39;',
-    "/": '&#x2F;'
+    "\"": "&quot;",
+    "'": "&#39;",
+    "/": "&#x2F;"
   };
 
 function escapeHtml(string) {

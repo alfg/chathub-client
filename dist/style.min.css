@@ -1,0 +1,10 @@
+/*
+ *  chathub-client - v0.0.1
+ *  Chatrooms for Github Projects
+ *  http://github.com/alfg/chathub-client
+ *
+ *  Made by Alfred Gutierrez
+ *  Under MIT License
+ */
+
+html{height:100%}body{font-family:Helvetica,arial,freesans,clean serif;color:#333;height:100%}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{margin-top:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;color:#333}@media (min-width:1200px){.container{width:970px}}.navbar-default .navbar-nav>li>a{color:#333;padding:10px 8px}.navbar-default .navbar-brand,.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:hover,.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:focus,.navbar-default .navbar-nav>.active>a:hover{color:#333}.navbar-brand{padding:10px 15px;height:40px}.navbar-brand .octicon.octicon-logo-github{font-size:24px}.navbar-brand .chat-logo{vertical-align:text-top;font:24px Helvetica,arial,freesans,clean,sans-serif;font-weight:700;letter-spacing:-1px}.navbar-nav>li>a{padding-top:10px;padding-bottom:10px}.navbar .github-link{font-size:18px}form{padding:3px;max-width:970px;margin:0 auto}#messages{height:650px;list-style-type:none;padding:0;margin:0;overflow-y:auto}#messages li{padding:5px 10px}#messages li:nth-child(odd){background:#eee}#users li{font-weight:700}#users img{margin-right:5px}.blog-footer{padding:40px 0;color:#999;text-align:center;background-color:#f9f9f9;border-top:1px solid #e5e5e5;position:fixed;bottom:0;width:100%}.blog-footer p:last-child{margin-bottom:0}.nav-tabs{border-bottom:0}.emoji{width:1.5em;height:1.5em;display:inline-block}.breadcrumb>li+li.users:before{content:""}.breadcrumb>li+li.users{padding-right:150px}pre.prettyprint{border:1px solid #CCC;margin-top:10px;margin-bottom:20px;padding:9.5px}
