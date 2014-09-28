@@ -99,8 +99,8 @@ socket.on("user disconnected", function(msg, users) {
 });
 
 socket.on("message", function(msg, profile){
-  var html_url = profile !== undefined ? profile.html_url : "#";
-  var thumbnail = profile !== undefined ? profile.thumbnail : "https://avatars0.githubusercontent.com/u/1746301";
+  var html_url = profile !== null ? profile.html_url : "#";
+  var thumbnail = profile !== null ? profile.thumbnail : "https://avatars0.githubusercontent.com/u/1746301";
 
   $("#messages").append($("<li>", {
       html: $("<a>", {
