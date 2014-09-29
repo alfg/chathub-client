@@ -5,7 +5,8 @@ var host = window.location.host;
 var room = window.location.pathname.substr(1) || "Lobby";
 var GITHUB_CLIENT_ID = host === "chathub.github.io" ? "5272ed33c7189d449ea8" : "45d29134d70365fbe5af";
 var SOCKETIO_HOST = host === "chathub.github.io" ? "http://chathub-server.alfg.co" : "http://alf-macbook.local:3000";
-var OAUTH_PROXY_URL = "https://auth-server.herokuapp.com/proxy";
+var OAUTH_PROXY_URL = SOCKETIO_HOST + "/proxy";
+
 
 // jQuery
 $(document).ready(function() {
@@ -99,8 +100,16 @@ socket.on("user disconnected", function(msg, users) {
 });
 
 socket.on("message", function(msg, profile){
-  var html_url = profile !== null ? profile.html_url : "#";
-  var thumbnail = profile !== null ? profile.thumbnail : "https://avatars0.githubusercontent.com/u/1746301";
+  console.log("profile: " + profile);
+  var html_url, thumbnail;
+
+  if (profile !== null || profile !== undefined) {
+    html_url = profile.html_url;
+    thumbnail = profile.thumbnail;
+  } else {
+    html_url = "#";
+    thumbnail = "https://avatars0.githubusercontent.com/u/1746301";
+  }
 
   $("#messages").append($("<li>", {
       html: $("<a>", {
