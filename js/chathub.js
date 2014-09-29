@@ -103,7 +103,7 @@ socket.on("message", function(msg, profile){
   console.log("profile: " + profile);
   var html_url, thumbnail;
 
-  if (profile !== null || profile !== undefined) {
+  if (profile !== null && profile !== undefined) {
     html_url = profile.html_url;
     thumbnail = profile.thumbnail;
   } else {
