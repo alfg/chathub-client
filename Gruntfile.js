@@ -20,8 +20,8 @@ module.exports = function(grunt) {
 		// Concat definitions
 		concat: {
 			js: {
-				src: ["src/chathub.js"],
-				dest: "dist/chathub.js"
+				src: ["js/hello.all.min.js", "js/emojify.min.js", "js/prettify.js", "js/chathub.js"],
+				dest: "dist/gen.js"
 			},
 			css: {
 				src: ["css/style.css"],
@@ -43,8 +43,8 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["js/chathub.js"],
-				dest: "dist/chathub.min.js"
+				src: ["dist/gen.js"],
+				dest: "dist/gen.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
