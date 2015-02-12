@@ -4,7 +4,7 @@ ChatHub is a simple chatroom application for your Github projects; featuring web
 
 **ChatHub Demo**: http://chathub.github.io/
 
-
+**Room Example**: http://chathub.github.io/alfg/demo
 
 `chathub-client` is the frontend application built to be hosted on any static host, including GitHub Pages!
 
